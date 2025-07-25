@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+body,html{
+    background-color: rgb(199, 199, 199);
+    font-family: 'Lexend';
+    margin: 0;
+}
+
+.main{
+    background-color: rgb(255, 255, 255);
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 2.5%;
+    padding-bottom: 5%;
+}
+
+h1{
+    margin: 0;
+}
+
+.label{
+    background-color: rgb(84, 181, 200);
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 0;
+}
+
+.label p{
+    font-weight: bold;
+    width: 50%;
+}
+
+.label a{
+    font-weight: lighter;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.pages{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    border: 1px solid rgb(84, 181, 200);
+    margin-bottom: 5%;
+    width: 100%;
+    
+}
+
+.page{
+    text-align: center;
+    margin: 5%;
+    color: blue;
+}
+
+.page-profile{
+    max-width: 100%;
+    height: auto;
+}
+
+/* navbar */
+
+nav{
+    background-color: rgb(50, 169, 86);
+    width: 60%;
+    margin: 0 auto;
+}
+
+li {
+    display: inline;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+ul {
+    background-color: rgb(58, 192, 98);
+    list-style-type: none;
+    margin: 0;
+    text-align: center;
+}
+
+.top{
+    display: flex;
+    height: 100px;
+}
+
+.top img{
+    height: 100px;
+}
+
+.top .search{
+    margin-top: 40px;
+    margin-left: 40px;
+    color: rgb(255,255,255);
+}
+
+/**/
+
+a{
+    text-decoration: none;
+}
+
+nav a{
+    text-decoration: none;
+    color: rgb(255,255,255);
+}
+
+nav a:hover{
+    text-decoration: underline;
+    color: rgb(14, 14, 226);
+}
+
+/* mediaqueries */
+
+@media screen and (max-width: 850px) {
+    .pages{grid-template-columns: repeat(3,1fr);}
+}
+
+@media screen and (max-width: 740px) {
+    .top{
+        display: inline;
+    }
+    .top .search{
+        margin-bottom: 5%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .pages{grid-template-columns: repeat(2,1fr);}
+}
+
+@media screen and (max-width: 500px) {
+    .pages{grid-template-columns: repeat(1,1fr);}
+}
