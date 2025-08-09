@@ -3,119 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <link rel="shortcut icon" href="/icon.png">
-    <title>Galaktisk | Site Builder</title>
+    <title>Galaktisk | Page Builder</title>
 </head>
 <body>
-    <nav>
-        <div class="top">
-            <div class="sect">
-                <a href="https://galaktisk.neocities.org"><img src="https://galaktisk.neocities.org/galaktisk.png" alt=""></a>
-            </div>
-            <div class="sect search">
-                <form action="https://galaktisk.neocities.org/">
-                    <label for="q">Search Pages:</label><br>
-                    <input type="text" name="q" autocomplete="off">
-                    <button type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-        <ul>
-            <li><a href="https://galaktisk.neocities.org">Browse</a></li>
-            <li><a href="https://galaktisk.neocities.org/join/">Join</a></li>
-            <li><a href="https://galaktisk.neocities.org/discord.html">Discord</a></li>
-        </ul>
-    </nav>
     <div class="main">
         <div class="container">
             <h1>Build your Galaktisk page</h1>
             <p>It is suggested to use a neocities page to host your page!<br><br>This website generates your index.html for you - you don't need to do anything else to create your first site<br>You can edit style.css to customise it further!<br><br>You can use HTML in this, use &lt;br&gt; for new lines</p>
-            
-            <h1>General</h1>
 
-            <div class="obj">
-                <label for="displayname">Display name</label><br>
-                <textarea name="displayname" id="displayname" oninput="store('displayname')"></textarea>
-            </div>
-            
-            <div class="obj">
-                <label for="smalltext">Small text - info about you (e.g: age, gender)</label><br>
-                <textarea name="smalltext" id="smalltext" oninput="store('smalltext')"></textarea>
-            </div>
-            
-            <div class="obj">
-                <label for="url">What will the link to your page be? (e.g: astralsparv.neocities.org)</label><br>
-                <textarea name="url" id="url" oninput="store('url')"></textarea>
-            </div>
+            <h1>Main</h1>
+            <a href="page/">Build your galaktisk page</a>
 
-            <h2>Interests</h2>
-            <div class="obj">
-                <label for="general">General</label><br>
-                <textarea name="general" id="general" oninput="store('general')"></textarea>
-            </div>
-            
-            <div class="obj">
-                <label for="music">Music</label><br>
-                <textarea name="music" id="music" oninput="store('music')"></textarea>
-            </div>
-            
-            <div class="obj">
-                <label for="movies">Movies</label><br>
-                <textarea name="movies" id="movies" oninput="store('movies')"></textarea>
-            </div>
-            
-            <div class="obj">
-                <label for="television">Television</label><br>
-                <textarea name="television" id="television" oninput="store('television')"></textarea>
-            </div>
-            
-            <div class="obj">
-                <label for="books">Books</label><br>
-                <textarea name="books" id="books" oninput="store('books')"></textarea>
-            </div>
-            
-            <div class="obj">
-                <label for="heroes">Heroes</label><br>
-                <textarea name="heroes" id="heroes" oninput="store('heroes')"></textarea>
-            </div>
-            
-            <h1>Blurb</h1>
-            <div class="obj">
-                <label for="aboutme">About you</label><br>
-                <textarea name="aboutme" id="aboutme" oninput="store('aboutme')"></textarea>
-            </div>
-            
-            <div class="obj">
-                <label for="meet">Who I'd like to meet</label><br>
-                <textarea name="meet" id="meet" oninput="store('meet')"></textarea>
-            </div>
-
-            <h1>How to format this section</h1>
-            <p>Hi! As this part of the page is formatted differently, you will have to seperate your input with formatters.<br>Use | to put your data in and a new line to seperate sections<br><br>e.g:
-            <br>
-            name|details|what to link
-            name|details|what to link
-            <br><br>
-            Email|coolsillystuffonly100@gmail.com|mailto:coolsillystuffonly100@gmail.com<br>
-            SpaceHey|@astralsparv|https://spacehey.com/astralsparv
-            </p>
-
-            <h1>Contact</h1>
-            <div class="obj">
-                <label for="contact">Your contacts, e.g: email, SpaceHey</label><br>
-                <textarea name="contact" id="contact" oninput="store('contact')"></textarea>
-            </div>
-            
-            <h1>Links</h1>
-            <div class="obj">
-                <label for="links">Your links, e.g: Twitch, Youtube</label><br>
-                <textarea name="links" id="links" oninput="store('links')"></textarea>
-            </div>
-        <button onclick="generateCode();">Generate code</button>
-        <p>To go from here, download a profile picture and name it "icon.png"<br>You can now post this icon.png file alongside your index.html file to neocities.org/dashboard or your hosting site of choice!<br><br>See <a href="https://galaktisk.neocities.org/join/">https://galaktisk.neocities.org/join/</a> to have your website listed!</p>
+            <h1>Blogs</h1>
+            <a href="blog/">Build your blog page</a>
+            <p>At this time, there is no editor for blogs.json - the file used to organise your blogs.<br>Please use <a href="blogs.json">this file</a> as a template for creating your own file.<br>Place blogs.json in /blog/</p>
         </div>
     </div>
-    <script src="index.js"></script>
+    <script src="/data/navloader.js"></script>
 </body>
 </html>

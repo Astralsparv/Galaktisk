@@ -4,14 +4,27 @@
         {
             "name": "Astralsparv",
             "url": "https://astralsparv.neocities.org",
-            "img": "https://astralsparv.neocities.org/icon.png",
             "joindate": 1753401600000
         },
         {
             "name": "꒰୨୧ faery.ᐟ",
             "url": "https://faerylatte.neocities.org",
-            "img": "https://faerylatte.neocities.org/icon.png",
             "joindate": 1753482901
+        },
+        {
+            "name": "ʚїɞ|hailey|ʚїɞ",
+            "url": "https://sillyhailey.neocities.org",
+            "joindate": 1753488470
+        },
+        {
+            "name": "BouSheqia",
+            "url": "https://bousheiqa.neocities.org",
+            "joindate": 1753548382
+        },
+        {
+            "name": "deadmania",
+            "url": "https://deadmania.neocities.org/galaktisk/",
+            "joindate": 1753656108
         }
     ]
 }

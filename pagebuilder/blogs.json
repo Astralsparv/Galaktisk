@@ -1,0 +1,32 @@
+{
+    "blogs": [
+        {
+            "pinned": false,
+            "title": "blog title",
+            "time": unixtimestamp,
+            "text": "short description",
+            "path": "blog1/",
+            "tags":[
+                "tag1","tag2"
+            ]
+        },{
+            "pinned": true,
+            "title": "blog title",
+            "time": unixtimestamp,
+            "text": "short description",
+            "path": "blog2/",
+            "tags":[
+                "tag3","tag2"
+            ]
+        },{
+            "pinned": true,
+            "title": "Example blog!",
+            "time": 1754004784,
+            "text": "This is an example of a blog!",
+            "path": "example/",
+            "tags":[
+                "example","blog","template"
+            ]
+        }
+    ]
+}

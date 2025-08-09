@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" href="/icon.png">
+    <title>Galaktisk | Blog Builder</title>
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <h1>Build your Blog</h1>
+            <p>This builds an index.html for a blog page. Remember to add this to your blogs.json for it to appear on your blogs page (blogs page can be created alongside your main page)!</p>
+            <div class="obj">
+                <button onclick="downloadJSON();">Download your blog as a .json file</button>
+                
+                <label for="json">Import a .json file as your blog</label>
+                <br>
+                <input type="file" name="json" id="json">
+                <button onclick="importJSON();">Import Blog JSON</button>
+            </div>
+            <h1>General</h1>
+
+            <div class="obj">
+                <label for="displayname">Display name</label><br>
+                <textarea name="displayname" id="displayname" oninput="store('displayname')"></textarea>
+            </div>
+            <div class="obj">
+                <label for="title">Title</label><br>
+                <textarea name="title" id="title" oninput="store('title')"></textarea>
+            </div>
+            <div class="obj">
+                <label for="content">Content</label><br>
+                <textarea name="content" id="content" oninput="store('content')"></textarea>
+            </div>
+
+            <h1>How to format this section</h1>
+            <p>Hi! As this part of the page is formatted differently, you will have to seperate your input with formatters.<br>Use | to put your data in<br><br>e.g:
+            <br>
+            tag1|tag2|tag3
+            <br><br>
+            programming|project|complete
+            <br><br>
+            You can add as many tags or as little tags as you like (minimum one tag)!
+            </p>
+            <div class="obj">
+                <label for="tags">Tags</label><br>
+                <textarea name="tags" id="tags" oninput="store('tags')"></textarea>
+            </div>
+        <button onclick="generateCode();">Generate code</button>
+        <p>To go from here, create a folder in your /blog/ page. It's best to name it similarly to your title or in a numbered fashion, e.g: blog1, blog2.<br>Place this index.html in that newly created folder.</p>
+        <p>At this time, there is no editor for blogs.json - see <a href="/pagebuilder/">pagebuilder</a> for more information.</p>
+        </div>
+    </div>
+    <script src="index.js"></script>
+    <script src="/data/navloader.js"></script>
+</body>
+</html>

@@ -29,7 +29,7 @@ function appendPage(page){
     name.textContent=page["name"];
     var img=document.createElement('img');
     img.classList="page-profile";
-    img.src=page["img"];
+    img.src=`${page["url"]}/icon.png`;
     img.alt=`${page["name"]}'s profile picture`;
     elm.appendChild(name);
     elm.appendChild(img);
