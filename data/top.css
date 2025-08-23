@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+:root {
+  --navBackground: rgb(50, 169, 86);
+  --navObjects: rgb(58, 192, 98);
+  --textColor: rgb(255,255,255);
+  --linkColor: rgb(14, 14, 226);
+}
+
+nav{
+    background-color: var(--navBackground);
+    width: 65%;
+    margin: 0 auto;
+}
+
+li {
+    display: inline;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+ul {
+    background-color: var(--navObjects);
+    list-style-type: none;
+    margin: 0;
+    text-align: center;
+}
+
+.top{
+    display: flex;
+    height: 100px;
+}
+
+.top img{
+    height: 100px;
+}
+
+.top .search{
+    margin-top: 40px;
+    margin-left: 40px;
+    color: var(--textColor);
+}
+
+nav a{
+    text-decoration: none;
+    color: var(--textColor);
+}
+
+nav a:hover{
+    text-decoration: underline;
+    color: var(--linkColor);
+}
+
+
+/* mediaqueries */
+
+@media screen and (max-width: 450px) {
+    .top{
+        display: inline;
+    }
+    .top .search{
+        margin-bottom: 5%;
+    }
+}
+
+@media screen and (max-width: 1390px) {
+    nav{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    nav{
+        width: 95%;
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+    nav{
+        width: 100%;
+    }
+}
