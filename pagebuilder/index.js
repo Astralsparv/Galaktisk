@@ -9,25 +9,8 @@ let rawCode=`<!DOCTYPE html>
     <title>{name}</title>
 </head>
 <body>
-    <nav>
-        <div class="top">
-            <div class="sect">
-                <a href="https://galaktisk.neocities.org"><img src="https://galaktisk.neocities.org/galaktisk.png" alt=""></a>
-            </div>
-            <div class="sect search">
-                <form action="https://galaktisk.neocities.org/">
-                    <label for="q">Search Pages:</label>
-                    <input type="text" name="q" autocomplete="off">
-                    <button type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-        <ul>
-            <li><a href="https://galaktisk.neocities.org">Browse</a></li>
-            <li><a href="https://galaktisk.neocities.org/join/">Join</a></li>
-            <li><a href="https://galaktisk.neocities.org/discord.html">Discord</a></li>
-        </ul>
-    </nav>
+    <!-- Built using Galaktisk Page Builder - the Myspace-esque social webring -->
+    <!-- https://galaktisk.neocities.org/ -->
     <div class="main">
         <div class="container">
             <div class="left">
@@ -101,14 +84,16 @@ let rawCode=`<!DOCTYPE html>
                     <p class="label">
                         {name}'s Blurbs
                     </p>
-                    <h4>About me:</h4>
-                    <p>
-                        {aboutme}
-                    </p>
-                    <h4>Who I'd like to meet:</h4>
-                    <p>
-                        {meet}
-                    </p>
+                    <div class="inner">
+                        <h4>About me:</h4>
+                        <p>
+                            {aboutme}
+                        </p>
+                        <h4>Who I'd like to meet:</h4>
+                        <p>
+                            {meet}
+                        </p>
+                      </div>
                 </div>
                 <div class="object">
                     <p class="label">
@@ -119,13 +104,37 @@ let rawCode=`<!DOCTYPE html>
                         <tbody>
                             {links}
                         </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://galaktisk.neocities.org/data/navloader.js"></script>
 </body>
 </html>`;
+
+let rawJSON=`
+{
+    "displayname": "{display}",
+    "smalltext": "{smalltext}",
+    "url": "{url}",
+    "general": "{general}",
+    "music": "{music}",
+    "movies": "{movies}",
+    "television": "{television}",
+    "books": "{books}",
+    "heroes": "{heroes}",
+    "aboutme": "{aboutme}",
+    "meet": "{meet}",
+    "contact":[
+        {contacts}
+    ],
+    "links":[
+        {links}
+    ]
+}
+`;
 
 const displayname=document.getElementById('displayname');
 const smalltext=document.getElementById('smalltext');
@@ -144,6 +153,7 @@ const meet=document.getElementById('meet');
 const contact=document.getElementById('contact');
 const links=document.getElementById('links');
 
+normInputs=[displayname,smalltext,url,general,music,movies,television,books,heroes,aboutme,meet]
 function store(id){
     localStorage.setItem(id,document.getElementById(id).value);
 }
@@ -156,6 +166,7 @@ function load(){
 }
 
 let code;
+let json;
 let contactTemp;
 let linksTemp;
 
@@ -207,7 +218,93 @@ function generateCode(){
         code=code.replaceAll('{links}','');
     }
     download("index.html",code);
+}
 
+function patchForJSON(t){
+    return t.replaceAll('\n','<br>').replaceAll('"','&quot;');
+}
+
+function patchFromJSON(t){
+    return t.replaceAll('<br>','\n').replaceAll('&quot;','"');
+}
+
+function downloadJSON(){
+    json=rawJSON;
+    json=json.replaceAll('{display}',patchForJSON(displayname.value));
+    json=json.replaceAll('{smalltext}',patchForJSON(smalltext.value));
+    json=json.replaceAll('{url}',patchForJSON(url.value));
+    
+    json=json.replaceAll('{general}',patchForJSON(general.value));
+    json=json.replaceAll('{music}',patchForJSON(music.value));
+    json=json.replaceAll('{movies}',patchForJSON(movies.value));
+    json=json.replaceAll('{television}',patchForJSON(television.value));
+    json=json.replaceAll('{books}',patchForJSON(books.value));
+    json=json.replaceAll('{heroes}',patchForJSON(heroes.value));
+
+    json=json.replaceAll('{aboutme}',patchForJSON(aboutme.value));
+    json=json.replaceAll('{meet}',patchForJSON(meet.value));
+
+    contactTemp='';
+    if (contact.value.includes('|')){
+        let data=contact.value.split('\n');
+
+        for (let i=0; i<data.length; i++){
+            contactTemp+='[\n';
+            let tdata=data[i].split('|');
+            contactTemp+=`            "${patchForJSON(tdata[0])}",\n`
+            contactTemp+=`            "${patchForJSON(tdata[1])}",\n`
+            contactTemp+=`            "${patchForJSON(tdata[2])}"\n`;
+            contactTemp+='        ]';
+            if (i<data.length-1){
+                contactTemp+=',';
+            }
+        }
+        json=json.replaceAll('{contacts}',contactTemp);   
+    }else{
+        json=json.replaceAll('{contacts}','');
+    }
+
+    linksTemp='';
+    if (links.value.includes('|')){
+        let data=links.value.split('\n');
+
+        for (let i=0; i<data.length; i++){
+            linksTemp+='[\n';
+            let tdata=data[i].split('|');
+            linksTemp+=`            "${patchForJSON(tdata[0])}",\n`
+            linksTemp+=`            "${patchForJSON(tdata[1])}",\n`
+            linksTemp+=`            "${patchForJSON(tdata[2])}"\n`;
+            linksTemp+='        ]';
+            if (i<data.length-1){
+                linksTemp+=',';
+            }
+        }
+        json=json.replaceAll('{links}',linksTemp);   
+    }else{
+        json=json.replaceAll('{links}','');
+    }
+
+    download("galaktiskprofile.json",json)
+}
+
+const jsonElm = document.getElementById("json");
+
+function importJSON(){
+    const json = jsonElm.files[0];
+    if (json) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            try {
+                const jsonData = JSON.parse(e.target.result);
+                normInputs.forEach(e => {
+                    e.value=patchFromJSON(jsonData[e.id]);
+                });
+            } catch (error) {
+                console.error('No parse', error);
+            }
+        };
+        reader.readAsText(json);
+    }
 }
 
 function download(filename, text) {

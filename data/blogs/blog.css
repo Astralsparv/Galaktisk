@@ -1,0 +1,159 @@
+:root {
+  --background: rgb(199, 199, 199);
+  --main: rgb(255, 255, 255);
+  --text: rgb(0, 0, 0);
+  --postinfoBorder: rgb(50, 169, 86);
+  --link: rgb(103, 138, 255);
+  --linkHover: rgb(253, 56, 56);
+  --embedProfile: rgb(0,0,255);
+}
+
+body,html{
+    background-color: var(--background);
+    font-family: 'Lexend';
+    margin: 0;
+}
+
+.main{
+    background-color: var(--main);
+    width: 65%;
+    margin: 0 auto;
+    padding-top: 2.5%;
+    padding-bottom: 5%;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    gap: 15px;
+}
+
+.left{
+    width: 20%;
+}
+
+.right{
+    width: 80%;
+}
+
+p{
+    margin: 0;
+    color: var(--text);
+}
+
+.object{
+    margin: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: var(--text);
+}
+
+.highlightText{
+    color: var(--highlightText);
+}
+
+.inner{
+    padding: 5px;
+}
+
+table{
+    width: 100%;
+}
+
+a{
+    color: var(--link);
+    text-decoration: none;
+}
+
+a:hover{
+    color: var(--linkHover);
+    text-decoration: underline;
+}
+
+h1{
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+/* media queries */
+
+@media screen and (max-width: 1390px) {
+    .main{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .main{
+        width: 95%;
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+    .main{
+        width: 100%;
+    }
+}
+
+
+/* embed profile */
+
+
+.embedProfile{
+    text-align: center;
+    color: var(--embedProfile);
+    border: var(--embedProfile);
+    display: block;
+    width: 100%;
+}
+
+.embedProfile-name{
+    text-decoration: none;
+}
+
+.embedProfile-image{
+    width: max-content;
+    height: auto;
+}
+
+/* blogstuffs */
+
+.postinfo{
+    border: 1px solid var(--postinfoBorder);
+    padding: 3%;
+    font-size: 15px;
+}
+
+.postinfo-icon{
+    width: 100%;
+}
+
+.postinfo-text{
+    font-weight: bold;
+}
+
+.postinfo-poster{
+    font-weight: bolder;
+}
+
+.postinfo-margin{
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.right img{
+    max-width: 100%;
+}
+
+/* more media queries */
+
+@media screen and (max-width: 900px) {
+    .container{
+      display:block;
+    }
+    .left,.right{
+      width: 100%;
+    }
+}

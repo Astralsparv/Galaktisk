@@ -16,7 +16,7 @@ let rawCode=`<!DOCTYPE html>
                     <img class="postinfo-icon" src="../../icon.png" alt="{name}'s profile picture">
                     <div class="postinfo-margin"></div>
                     <p class="postinfo-text">Published by <a href="../../" class="postinfo-poster">{name}</a></p>
-                    <p class="postinfo-date">Published {date}</p>
+                    <p class="postinfo-date">published {date}</p>
                     <div class="postinfo-margin"></div>
                     <p class="tags">
                         Tags: {tags}
